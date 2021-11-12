@@ -4,6 +4,7 @@ import os.path
 from os import path
 from shutil import copyfile
 import json
+# You can change your configuration here
 data = {
 "torrentDir":"./torrents/",
 "dataDir": [],
@@ -13,8 +14,7 @@ data = {
 
 
 # Export qBittorrent torrents with readable title
-# 按路径导出 qBittorrent 种子
-# 需要先安装 qbittorrent-api,并配置 host / webapi 用户名&密码
+# You need to install qbittorrent-api first, and configure host / webapi username & password
 #
 # pip install qbittorrent-api
 
@@ -28,10 +28,11 @@ try:
 except qbittorrentapi.LoginFailed as e:
   print(e)
 
-#source 存放种子的目录 destination 导出的目录
+# source: BT_backup directory
+# destination: export directory
 
 source='C:\\Users\\username\\AppData\\Local\\qBittorrent\\BT_backup'
-destination='./torrents/'
+destination = data["torrentDir"]
 
 print(f'qBittorrent: {qbt_client.app.version}')
 print(f'qBittorrent Web API: {qbt_client.app.web_api_version}')
@@ -49,11 +50,11 @@ print(f'starting')
 def copy(source,destination,torrent):
   src=os.path.join(source,torrent.hash+'.torrent')
   if path.exists(src):
-    #复制对应hash的文件,并重命名为种子标题
+    #copy and rename
     dst=os.path.join(destination,torrent.name+'.torrent')
     copyfile(src,dst)
   else:
-  #没有找到文件时候
+  # if do not find the torrent. 
     print(f"⚠Can find{torrent.name}")
     print(f"file:{src}")
 for torrent in qbt_client.torrents_info():
