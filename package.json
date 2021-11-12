@@ -1,0 +1,23 @@
+{
+  "name": "utorrent-resume",
+  "version": "1.0.0",
+  "description": "A tool to generate utorrent's resume file from torrents and files",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "bencode": "^0.11.0",
+    "parse-torrent": "^5.8.2"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-standard": "^10.2.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-node": "^4.2.2"
+  }
+}

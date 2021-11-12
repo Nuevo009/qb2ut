@@ -1,0 +1,8 @@
+{
+  "torrentDir": "./torrents/",
+  "dataDir": ["E:\\anime\\1\\vcb\\","D:\\download\\","F:\\anime\\2"],
+  "blacklist": [
+    ""
+  ],
+  "depth": 3
+}
